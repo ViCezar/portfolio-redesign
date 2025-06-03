@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #213547;
+  background-color: #f8fafc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Estilos personalizados para os frames de celular */
+.phone-frame {
+  position: relative;
+  border: 14px solid #1f2937;
+  border-radius: 2.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.phone-frame:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  width: 148px;
+  height: 18px;
+  background-color: #1f2937;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.phone-frame::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #4b5563;
+  border-radius: 50%;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Botões de volume e power */
+.phone-button-left-1, .phone-button-left-2, .phone-button-right {
+  position: absolute;
+  width: 3px;
+  height: 46px;
+  background-color: #1f2937;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.phone-button-left-1 {
+  top: 124px;
+  left: -17px;
+}
+
+.phone-button-left-2 {
+  top: 178px;
+  left: -17px;
+}
+
+.phone-button-right {
+  height: 64px;
+  top: 142px;
+  right: -17px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* Animações para elementos */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+/* Estilos para as barras de progresso */
+.skill-bar {
+  height: 10px;
+  border-radius: 5px;
+  background-color: #e5e7eb;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
+
+/* Estilos para os cards de projetos */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Estilos para formulários */
+.form-input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  outline: none;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .phone-frame {
+    transform: scale(0.9);
+  }
+  
+  .phone-frame:hover {
+    transform: scale(0.93) rotate(-1deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .phone-frame {
+    transform: scale(0.8);
+  }
+  
+  .phone-frame:hover {
+    transform: scale(0.83) rotate(-1deg);
+  }
+}
